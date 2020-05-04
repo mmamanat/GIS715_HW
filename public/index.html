@@ -67,7 +67,8 @@
             <h2>Assignment #1: Basic introduction to plotly.js</h2>
                        
             <p>Plotly.js is a library ideally suited for JavaScript applications which make use of graphs 
-                and charts. This lab used plotly.js to create a line graph, a bar chart, and a graph. 
+                and charts. This lab used plotly.js to create a line graph, a bar chart, and a graph. The first 
+                graph was generated with random x and y points. 
             </p>
         
             <div id="myDiv">
@@ -113,25 +114,65 @@
 
                 </script>
                 </div>
-             
-            <p>One of the exercises completed in this tutorial was the development of an
-              <a href="../public/06_07_DONE/index.html">analog clock</a> that displays the current time.</p>
 
-            
-            <h2>Assignment #2: Five Design Sheets</h2>
-            <p>The Design-By-Sketching process was created to visualize information provided by students from the 2019 GIS 715 class
-               and the 2020 GIS 715 class. Information included includes spatial information such as birthplace, three locations each student has lived, three 
-               locations each student has traveled, where each student would like to live in the future, where each students parents 
-               and grandparents were born, and some basic personal preferences including whether they prefer cats, dogs, or both, whether
-               they are colorblind, their favorite number, music preferences, cheese preferences, whether they like spicy food or not, 
-               and hobbies. </p>
-
-            <p><strong>Sheet #1</strong> is the ideas sheet, where you think and sketch design concepts and consider many possible outcomes. 
-      
+            <p>The second graph displayed the number of Jewish survivors per district in Budapest based on 
+                data from 1945. 
             </p>
 
-            <p><img src="imgs/sheet1.jpg" alt="sheet1" style="width:50%">
-              <figcaption>Figure 1. Design-By-Sketching Sheet #1.</figcaption></p>
+            <div id="myDiv">
+                <!-- Plotly chart will be drawn inside this DIV -->
+                <script>
+                  var trace = {
+                      x: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'Unk'],
+                      y: [15, 115, 71, 125, 626, 727, 1349, 489, 202, 71, 59, 61, 124, 218, 4],
+                      mode: 'lines+markers',
+                      type: 'bar',
+                      name: "Female",
+                  };
+                  var trace2 = {
+                      x: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'Unk'],
+                      y: [7, 76, 41, 70, 394, 482, 830, 295, 123, 51, 32, 42, 74, 163,4],
+                      mode: 'lines+markers',
+                      type: 'bar',
+                      name: "Male",
+                  };
+                  var layout = {
+                  title: {
+                      text:"1945 Jewish Survivors in Budapest",
+                      font: {
+                          family:"Arial",
+                          size:30
+                          }
+                      },
+                  xaxis:{
+                      title:{
+                          text: 'Districts',
+                          font: {
+                              family:'Circular, monospace',
+                              size: 18,
+                              color: '#7f7f7f'
+                              }
+                          }
+                      },
+                  yaxis:{
+                      title:{
+                          text: 'Number of survivors',
+                          font: {
+                              family:'Circular, monospace',
+                              size: 18,
+                              color: '#7f7f7f'
+                              }
+                          }
+                      },
+                  };
+                  var data = [trace, trace2];
+                  
+                  Plotly.newPlot('myDiv', data, layout);
+      
+              </script>
+            </div>
+             
+            
 
             <p><strong>Sheet #2 through #4</strong> is where you create three main designs. These sheets contain the following elements:
                Information, layout, operations, focus/parti, and a discussion.</p>
