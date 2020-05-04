@@ -358,9 +358,11 @@
 
 
 
+
+
     <script>
     
-        var mymap2 = L.map('mapid').setView([39.75621,-104.99404], 10);
+        var mymap = L.map('mapid').setView([39.75621,-104.99404], 10);
     
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -369,10 +371,10 @@
             tileSize: 512,
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoibWNvZmZlciIsImEiOiJjazhyZzZhMGcwMDJoM2twNXUxc3dqenUwIn0.lUpVE-E6wSdrbxbCP9QHWg'
-        }).addTo(mymap2);
+        }).addTo(mymap);
     
     
-        var geojsonFeature2 = {
+        var geojsonFeature = {
             "type": "Feature",
             "properties": {
                 "name": "Coors Field",
@@ -386,22 +388,22 @@
             
         };
     
-        var myStyle2 = {
+        var myStyle = {
             "color": "#ff7800",
             "weight": 10,
             "opacity": 0.8
         };
     
     
-        var myLayer2 = L.geoJSON("", {
-          style: myStyle2
+        var myLayer = L.geoJSON("", {
+          style: myStyle
             }
         );
     
     
-        myLayer2.addData(geojsonFeature2);
+        myLayer.addData(geojsonFeature);
     
-        var myLines2 = [{
+        var myLines = [{
             "type": "LineString",
             "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
         }, {
@@ -410,13 +412,13 @@
         }];
     
         
-        myLayer2.addData(myLines2);
+        myLayer.addData(myLines);
     
-        var ptLayer2 = L.geoJSON(geojsonFeature2);
+        var ptLayer = L.geoJSON(geojsonFeature);
     
-        myLayer2.addData(myLines2);
+        myLayer.addData(myLines);
     
-        myLayer2.addTo(mymap2);
+        myLayer.addTo(mymap);
     
         var states = [{
         "type": "Feature",
@@ -454,13 +456,13 @@
         }
     };
     
-    var myLayer22 = L.geoJSON("", {
+    var myLayer2 = L.geoJSON("", {
         style: theStyler
     }
     );
     
-    myLayer22.addData(states);
-    myLayer22.addTo(mymap2);
+    myLayer2.addData(states);
+    myLayer2.addTo(mymap);
     
     
     var geojsonMarkerOptions = {
@@ -481,8 +483,8 @@
     );
     
     
-    myLayer3.addData(geojsonFeature2);
-    myLayer3.addTo(mymap2);
+    myLayer3.addData(geojsonFeature);
+    myLayer3.addTo(mymap);
     
     
     function onEachOfMyFeatures(feature, layer) {
@@ -492,7 +494,7 @@
         }
     }
     
-    var geojsonFeature2 = {
+    var geojsonFeature = {
         "type": "Feature",
         "properties": {
             "name": "Coors Field",
@@ -506,9 +508,9 @@
     };
     
     
-    L.geoJSON(geojsonFeature2, {
+    L.geoJSON(geojsonFeature, {
         onEachFeature: onEachOfMyFeatures
-    }).addTo(mymap2);
+    }).addTo(mymap);
     
     
     var someFeatures = [{
@@ -537,7 +539,7 @@
         filter: function(feature, layer) {
             return feature.properties.show_on_map;
         }
-    }).addTo(mymap2);
+    }).addTo(mymap);
     
     
     </script>
