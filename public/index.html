@@ -348,18 +348,20 @@
     </script> -->
 
 
+
+    <!-- NEW PLOT -->
+
     <body>
 
         <div id="mapid" style="height: 800px;"></div>
     
     </body>
     
-    <!doctype html>
-    <html>
+
     
     <script>
     
-        var mymap = L.map('mapid').setView([39.75621,-104.99404], 10);
+        var mymap2 = L.map('mapid').setView([39.75621,-104.99404], 10);
     
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -368,7 +370,7 @@
             tileSize: 512,
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoibWNvZmZlciIsImEiOiJjazhyZzZhMGcwMDJoM2twNXUxc3dqenUwIn0.lUpVE-E6wSdrbxbCP9QHWg'
-        }).addTo(mymap);
+        }).addTo(mymap2);
     
     
         var geojsonFeature = {
@@ -415,7 +417,7 @@
     
         myLayer.addData(myLines);
     
-        myLayer.addTo(mymap);
+        myLayer.addTo(mymap2);
     
         var states = [{
         "type": "Feature",
@@ -459,7 +461,7 @@
     );
     
     myLayer2.addData(states);
-    myLayer2.addTo(mymap);
+    myLayer2.addTo(mymap2);
     
     
     var geojsonMarkerOptions = {
@@ -481,7 +483,7 @@
     
     
     myLayer3.addData(geojsonFeature);
-    myLayer3.addTo(mymap);
+    myLayer3.addTo(mymap2);
     
     
     function onEachOfMyFeatures(feature, layer) {
@@ -507,7 +509,7 @@
     
     L.geoJSON(geojsonFeature, {
         onEachFeature: onEachOfMyFeatures
-    }).addTo(mymap);
+    }).addTo(mymap2);
     
     
     var someFeatures = [{
@@ -536,7 +538,7 @@
         filter: function(feature, layer) {
             return feature.properties.show_on_map;
         }
-    }).addTo(mymap);
+    }).addTo(mymap2);
     
     
     
