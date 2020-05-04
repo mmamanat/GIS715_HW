@@ -18,6 +18,9 @@
     <link href="./vender/css/blog.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
     <link href="./js/dashboard.js" rel="stylesheet">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   </head>
   
   
@@ -61,15 +64,56 @@
             <h2 class="blog-post-title">Homework #3</h2>
             <p class="blog-post-meta">May 4, 2020</p>
             
-            <h2>Assignment #1: Creating an Analog Clock</h2>
+            <h2>Assignment #1: Basic introduction to plotly.js</h2>
                        
-            <p>A series of video tutorials was studied as an introduction to JavaScript. 
-              JavaScript is a scripting language of the web. As the web evolves from a static to a dynamic 
-              environment, technology focus is shifting from static markup and styling—frequently handled by 
-              content management systems or automated scripts—to dynamic interfaces and advanced interaction. 
-              Once seen as optional, JavaScript is now becoming an integral part of the web, infusing every 
-              layer with its script.</p>
-              
+            <p>Plotly.js is a library ideally suited for JavaScript applications which make use of graphs 
+                and charts. This lab used plotly.js to create a line graph, a bar chart, and a graph. 
+            </p>
+        
+            <div id="myDiv">
+                <!-- Plotly chart will be drawn inside this DIV -->
+                <script>
+                var trace = {
+                    x: [1, 2, 3, 4, 5, 6, 7, 8],
+                    y: [1, 4, 9, 16, 25, 36, 49, 64],
+                 mode: 'lines+markers',
+                 };
+                var layout = {
+                    title: {
+                        text:"This is a NEW title!",
+                        font: {
+                            family:"Arial",
+                            size:30
+                        }
+                    },
+                     xaxis:{
+                        title:{
+                            text: 'The x axis',
+                            font: {
+                                family:'Circular, monospace',
+                                size: 18,
+                                color: '#7f7f7f'
+                                }
+                            }
+                        },
+                    yaxis:{
+                        title:{
+                            text: 'The y axis',
+                            font: {
+                                family:'Circular, monospace',
+                                size: 18,
+                                color: '#7f7f7f'
+                                }
+                            }
+                        },
+                    };
+                    var data = [trace];
+                    
+                    Plotly.newPlot('myDiv', data, layout);
+
+                </script>
+                </div>
+             
             <p>One of the exercises completed in this tutorial was the development of an
               <a href="../public/06_07_DONE/index.html">analog clock</a> that displays the current time.</p>
 
