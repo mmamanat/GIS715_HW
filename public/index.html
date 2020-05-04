@@ -64,7 +64,7 @@
             <h2 class="blog-post-title">Homework #3</h2>
             <p class="blog-post-meta">May 4, 2020</p>
             
-            <h2>Assignment #1: Basic introduction to plotly.js</h2>
+            <h2>Lab #1: Basic introduction to plotly.js</h2>
                        
             <p>Plotly.js is a library ideally suited for JavaScript applications which make use of graphs 
                 and charts. This lab used plotly.js to create a line graph, a bar chart, and a graph. The first 
@@ -122,21 +122,21 @@
             <div id="myDiv2">
                 <!-- Plotly chart will be drawn inside this DIV -->
                 <script>
-                  var trace = {
+                  var trace_bar = {
                       x: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'Unk'],
                       y: [15, 115, 71, 125, 626, 727, 1349, 489, 202, 71, 59, 61, 124, 218, 4],
                       mode: 'lines+markers',
                       type: 'bar',
                       name: "Female",
                   };
-                  var trace2 = {
+                  var trace2_bar = {
                       x: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'Unk'],
                       y: [7, 76, 41, 70, 394, 482, 830, 295, 123, 51, 32, 42, 74, 163,4],
                       mode: 'lines+markers',
                       type: 'bar',
                       name: "Male",
                   };
-                  var layout = {
+                  var layout_bar = {
                   title: {
                       text:"1945 Jewish Survivors in Budapest",
                       font: {
@@ -165,9 +165,9 @@
                           }
                       },
                   };
-                  var data = [trace, trace2];
+                  var data_bar = [trace_bar, trace2_bar];
                   
-                  Plotly.newPlot('myDiv2', data, layout);
+                  Plotly.newPlot('myDiv2', data_bar, layout_bar);
       
               </script>
             </div>
