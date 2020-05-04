@@ -172,26 +172,69 @@
               </script>
             </div>
              
-            
+            <p>
+                The third visualization displayed global meteorite landings. 
+            </p>
 
-            <p><strong>Sheet #2 through #4</strong> is where you create three main designs. These sheets contain the following elements:
-               Information, layout, operations, focus/parti, and a discussion.</p>
+            <div id="mapDiv"></div>
+  <script>
+  // Plottly wrapper
+  Plotly.setPlotConfig({
+    mapboxAccessToken: 'pk.eyJ1IjoibWNvZmZlciIsImEiOiJjazhla2U3c2wxNjE0M2xxdW5manFsZ3owIn0.rXIp186QQnEwyqOClXDdmg'
+  });
+  // JS code for plot
+  Plotly.d3.csv('https://raw.githubusercontent.com/bcdunbar/datasets/master/meteorites_subset.csv', function(err, rows){
+    // Code for defining layout will go here
+    var layout = {
+    title: 'Meteorite Landings',
+    font: {
+    color: 'white'
+    },
+    dragmode: 'zoom', 
+    mapbox: {
+        center: {
+    lat: 38.03697222, 
+    lon: -90.70916722
+        }, 
+        style: 'light', 
+        zoom: 2
+    }, 
+    paper_bgcolor: '#191A1A', 
+    plot_bgcolor: '#191A1A', 
+    showlegend: true,
+    annotations: [{
+    x: 0,
+    y: 0,
+        text: 'NASA',
+        showarrow: false
+    }]
+    };
+    // Code for defining data will go here
+    var classArray = unpack(rows, 'class');
+    var classes = [...new Set(classArray)];
 
-               <p><img src="imgs/sheet2.jpg" alt="sheet2" style="width:50%">
-                <figcaption>Figure 2. Design-By-Sketching Sheet #2.</figcaption>
+    function unpack(rows, key) {
+        return rows.map(function(row) {
+            return row[key];
+        });
+    }
+    var data = classes.map(function(classes) {
+        var rowsFiltered = rows.filter(function(row) {
+            return (row.class === classes);
+        });
+        return {
+            type: 'scattermapbox',
+            name: classes,
+            lat: unpack(rowsFiltered, 'reclat'),
+            lon: unpack(rowsFiltered, 'reclong')
+        };
+    });
+    Plotly.plot('mapDiv', data, layout);
+    });
+  </script>
+</div>
 
-                <img src="imgs/sheet3.jpg" alt="sheet3" style="width:50%">
-                <figcaption>Figure 3. Design-By-Sketching Sheet #3.</figcaption>
 
-                <img src="imgs/sheet4.jpg" alt="sheet4" style="width:50%">
-                <figcaption>Figure 4. Design-By-Sketching Sheet #4.</figcaption>
-              </p>
-
-            <p><strong>Sheet #5</strong> is the final sheet. It contains a realization of the design with enough detail to allow 
-              someone to understand your visions and implement what you have designed.</p>
-
-              <p><img src="imgs/sheet5.jpg" alt="sheet5" style="width:50%">
-                <figcaption>Figure 5. Design-By-Sketching Sheet #5.</figcaption></p>
 
             <h2>Assignment #3: Tableau Visualizations</h2>
             <p>Tableau is a powerful, secure, and flexible end-to-end analytics platform for visualizing data. 
